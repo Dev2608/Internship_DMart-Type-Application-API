@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dmratModelStoreContainer" CdmEntityContainer="dmratEntities1">
+    <EntitySetMapping Name="purchase_table">
+      <EntityTypeMapping TypeName="dmratModel.purchase_table">
+        <MappingFragment StoreEntitySet="purchase_table">
+          <ScalarProperty Name="purchase_id" ColumnName="purchase_id" />
+          <ScalarProperty Name="purchase_number" ColumnName="purchase_number" />
+          <ScalarProperty Name="purchase_date" ColumnName="purchase_date" />
+          <ScalarProperty Name="total_amount" ColumnName="total_amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purchaseProductTables">
+      <EntityTypeMapping TypeName="dmratModel.purchaseProductTable">
+        <MappingFragment StoreEntitySet="purchaseProductTable">
+          <ScalarProperty Name="purchase_product_id" ColumnName="purchase_product_id" />
+          <ScalarProperty Name="purchase_id" ColumnName="purchase_id" />
+          <ScalarProperty Name="item_name" ColumnName="item_name" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

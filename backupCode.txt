@@ -1,0 +1,85 @@
+using connection;
+using DmartAPI.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+namespace DmartAPI.Controllers
+{
+    public class InsertProductController : ApiController
+    {
+        Connect ob1 = new Connect();
+        dmratEntities1 db = new dmratEntities1();
+
+
+        // insert API
+        // this will take all the detail of product transaction
+
+        [Route("api/InsertProduct/InsertProduct")]
+        [HttpPost]
+        public IHttpActionResult InsertProduct([FromBody] purchaseProductTable[] data)
+        {
+            int len = data.Length;
+
+            double TOTAL_AMOUNT = 0.0;
+
+            purchase_table obj = new purchase_table();
+
+
+            try
+            {
+                ob1.connect();
+
+                for(int i=0;i<len;i++)
+                {
+                    int p_id = data[i].purchase_id;
+                    string name = data[i].item_name;
+                    int QTY = data[i].qty;
+                    double AMOUNT = data[i].amount;                    
+                    TOTAL_AMOUNT = TOTAL_AMOUNT + data[i].amount;
+
+                    db.purchaseProductTables.Add(data[i]);
+                                     
+                    ob1.insertTopurchaseProductTable(p_id, name, QTY, AMOUNT);
+                }
+
+                obj.total_amount = TOTAL_AMOUNT;
+                obj.purchase_date = DateTime.Now;
+
+
+                db.purchase_table.Add(obj);
+
+
+                ob1.insertTopurchaseTable(1, DateTime.Now, TOTAL_AMOUNT);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return (IHttpActionResult)ex;
+            }
+        }
+
+        [Route("api/InsertProduct/DeleteProductByProductId")]
+        [HttpPost]
+        public IHttpActionResult DeleteProductByProductId(int data)
+        {            
+            try
+            {
+                ob1.connect();
+
+                ob1.deleteBypurchase_id(data);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return (IHttpActionResult)ex;
+            }
+        }
+
+    }
+}

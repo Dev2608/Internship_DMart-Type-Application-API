@@ -1,0 +1,6 @@
+C:\Users\Asus\Desktop\dmar API\connection\bin\Debug\connection.dll
+C:\Users\Asus\Desktop\dmar API\connection\bin\Debug\connection.pdb
+C:\Users\Asus\Desktop\dmar API\connection\obj\Debug\connection.csproj.AssemblyReference.cache
+C:\Users\Asus\Desktop\dmar API\connection\obj\Debug\connection.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Desktop\dmar API\connection\obj\Debug\connection.dll
+C:\Users\Asus\Desktop\dmar API\connection\obj\Debug\connection.pdb
